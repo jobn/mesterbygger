@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react'
+import React from "react";
+import { Card, Icon, Image } from "semantic-ui-react";
 
 const LegoSet = ({ name, set_url, set_img_url, set_num, year }) => (
   <Card>
@@ -11,11 +11,11 @@ const LegoSet = ({ name, set_url, set_img_url, set_num, year }) => (
     </Card.Content>
     <Card.Content extra>
       <a href={set_url}>
-        <Icon name='cloud' />
+        <Icon name="cloud" />
         Rebrickable
       </a>
     </Card.Content>
   </Card>
-)
+);
 
-export default LegoSet
+export default LegoSet;
