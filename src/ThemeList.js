@@ -1,7 +1,22 @@
 import React from "react";
 import { List } from "semantic-ui-react";
 
-const maxDepth = 1;
+const maxDepth = 2;
+
+const sortByName = (a, b) => {
+  const nameA = a.name.toUpperCase();
+  const nameB = b.name.toUpperCase();
+
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  if (nameB > nameA) {
+    return -1;
+  }
+
+  return 0;
+};
 
 const Theme = ({ id, name, subThemes, allThemes, depth }) => (
   <List.Item>
@@ -36,6 +51,7 @@ const ThemeList = ({ themes }) => (
   <List bulleted>
     {themes
       .filter(theme => theme.parent_id == null)
+      .sort(sortByName)
       .map(theme => (
         <Theme
           {...theme}
