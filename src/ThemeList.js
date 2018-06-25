@@ -1,22 +1,8 @@
 import React from "react";
 import { List } from "semantic-ui-react";
+import { sortByName } from "./utils";
 
 const maxDepth = 2;
-
-const sortByName = (a, b) => {
-  const nameA = a.name.toUpperCase();
-  const nameB = b.name.toUpperCase();
-
-  if (nameA > nameB) {
-    return 1;
-  }
-
-  if (nameB > nameA) {
-    return -1;
-  }
-
-  return 0;
-};
 
 const Theme = ({ id, name, subThemes, allThemes, depth }) => (
   <List.Item>

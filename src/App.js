@@ -1,29 +1,18 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Card, Container } from "semantic-ui-react";
-import ThemeList from "./ThemeList";
-import { fetchThemes } from "./api";
+import { Container } from "semantic-ui-react";
+import { Store, Consumer } from "./Store";
+import SetFilter from "./SetFilter";
 
 class App extends Component {
-  state = {
-    themes: []
-  };
-
-  componentDidMount() {
-    fetchThemes().then(response => {
-      this.setState({
-        themes: response.data.results
-      });
-    });
-  }
-
   render() {
-    const { themes } = this.state;
-
     return (
-      <Container>
-        <ThemeList themes={themes} />
-      </Container>
+      <Store>
+        <Container>
+          <Consumer>
+            {value => <SetFilter sets={value.sets} themes={value.themes} />}
+          </Consumer>
+        </Container>
+      </Store>
     );
   }
 }
